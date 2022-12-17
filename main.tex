@@ -1,0 +1,84 @@
+% \documentclass[]{arg-thesis} % <-- before defense
+\documentclass[defended]{arg-thesis} % <-- after defense, adds another cover page
+
+% your packages
+\usepackage{lipsum}
+
+% things you have to define
+\title{Thesis Title}
+\author{Your Name}
+\bornDate{DD MMMM YYYY}
+\bornLocation{Luxembourg (Luxembourg)}
+\date{MMMM YYYY}
+\faculty{Faculty of Science, Technology and Medicine (FSTM)} % optional
+\university{Université du Luxembourg}
+\group{Interdisciplinary Centre for Security, Reliability and Trust (SnT)\\Automation and Robotics Research Group}
+\phdNumber{PhD-XXXX-XXXX-XXX}
+\degreeTitle{Docteur de l'Université du Luxembourg}
+\degreeIn{en sciences de l'ingénieur}
+\cetmembers{
+    Member 1, 
+    Member 2, 
+    Member 3
+}
+\defencemembers{
+    Member 1/{Title}, 
+    Member 2/{Title}, 
+    Member 3/{Title}, 
+    Member 4/{Title}, 
+    Member 5/{Title}
+}
+\defenceDate{DD/MM/YYYY}
+\signatureLocation{Luxembourg}
+\signatureImage{example-image-a} % your signature image
+
+% add your .bib file
+\addbibresource{mybib.bib}
+
+% acronyms
+\makeglossaries
+\newacronym{LATEX}{LATEX}{Largely a text editing xenoblast}
+
+% ===================================================================================
+\begin{document}
+% ===================================================================================
+\begin{abstract}
+    \lipsum[2-4]
+\end{abstract}
+
+\begin{acknolegements}
+    \lipsum[1-2]
+\end{acknolegements}
+
+\begin{citequote}[Famous Dude]
+    Put a quote that you like here.
+\end{citequote}
+
+\maketitle
+
+% It is recommended to use the 'subfiles' package for the content
+% that way you can compile individual sections instead of the 
+% whole document
+\part{Background}
+\chapter{Introduction}
+\lipsum[2-4]
+
+\part{Contributions}
+\chapter{Conclusion}
+\lipsum[2-4]
+\begin{figure}
+\includegraphics{example-image-a}
+\centering
+\caption[Example]{This is an example}
+\label{fig:example}
+\end{figure}
+\cite{Zhu2019}, see \cref{fig:example}, \acrfull{LATEX}.
+
+% Bibliography
+% ================================================================================================
+\chapter*{Bibliography}
+% ================================================================================================
+\addcontentsline{toc}{chapter}{Bibliography}  
+\printbibliography[heading=none]
+
+\end{document}
