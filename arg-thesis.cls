@@ -17,13 +17,15 @@
 \RequirePackage{tikz}
 \RequirePackage{setspace}
 \RequirePackage{graphicx}
+\usepackage[utf8]{inputenc}
 \RequirePackage[backend=biber, style=numeric, sorting=none, urldate=comp]{biblatex}
 \RequirePackage[Lenny]{fncychap}
 \RequirePackage[acronym]{glossaries}
+\RequirePackage{nomencl}
 \RequirePackage[capitalise]{cleveref}
 \RequirePackage{amsmath,amssymb,amsfonts,amsthm}
 \RequirePackage{float}
-
+    
 
 % hyper setup
 \hypersetup{
@@ -58,14 +60,14 @@
 % redefine abstract
 \newbox\@abstractbox
 \renewenvironment{abstract}{%
-  \global\setbox\@abstractbox=\vtop\bgroup
-  \par\medskip\noindent\unskip\ignorespaces\it}
+  \global\setbox\@abstractbox=\vbox\bgroup
+  \par\medskip\noindent\unskip\ignorespaces\itshape}
 {\egroup}
 
 % define acknowledgments
 \newbox\@acknowledgmentbox
 \newenvironment{acknolegements}{%
-  \bgroup\begin{minipage}[c]{0.75\textwidth}\global\setbox\@acknowledgmentbox=\vtop\bgroup
+  \bgroup\begin{minipage}[c]{0.75\textwidth}\global\setbox\@acknowledgmentbox=\vbox\bgroup
   \par\medskip\noindent\unskip\ignorespaces}
 {\par\nobreak\smallskip\hfill\@author\egroup\end{minipage}\egroup}
 
@@ -171,7 +173,7 @@
     \ % The empty page   
     % abstract
     \chapter*{Abstract}
-    \usebox{\@abstractbox}
+    \unvbox\@abstractbox
     \newpage
     \ % The empty page
     \newpage
@@ -198,6 +200,8 @@
     \listoftables
     \newpage
     \printglossary[type=\acronymtype]
+    \newpage
+    % \printnomenclature
     \newpage
     \pagenumbering{arabic} 
     \setcounter{page}{1}
